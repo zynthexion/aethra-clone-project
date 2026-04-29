@@ -28,31 +28,34 @@ export function CursorGlow() {
 
   if (!enabled) return null;
 
-  const radius = clicking ? 320 : 240;
+  const bandHeight = clicking ? 320 : 240;
 
   return (
     <>
-      {/* Spotlight mask — darkens everything except a soft circle around the cursor */}
+      {/* Horizontal band mask — reveals the entire row at cursor's Y */}
       <div
         className="pointer-events-none fixed inset-0 z-[9990] transition-[background] duration-150"
         style={{
-          background: `radial-gradient(circle ${radius}px at ${pos.x}px ${pos.y}px,
-            transparent 0%,
-            rgba(0,0,0,0.35) 35%,
-            rgba(0,0,0,0.85) 65%,
+          background: `linear-gradient(to bottom,
+            rgba(0,0,0,0.97) 0%,
+            rgba(0,0,0,0.97) calc(${pos.y}px - ${bandHeight}px),
+            rgba(0,0,0,0.4) calc(${pos.y}px - ${bandHeight / 2}px),
+            transparent ${pos.y}px,
+            rgba(0,0,0,0.4) calc(${pos.y}px + ${bandHeight / 2}px),
+            rgba(0,0,0,0.97) calc(${pos.y}px + ${bandHeight}px),
             rgba(0,0,0,0.97) 100%)`,
         }}
       />
-      {/* Warm bulb glow */}
+      {/* Warm neon glow centered on cursor */}
       <div
         className="pointer-events-none fixed z-[9991] rounded-full"
         style={{
           left: pos.x,
           top: pos.y,
-          width: radius * 2,
-          height: radius * 2,
+          width: 600,
+          height: bandHeight * 1.4,
           transform: "translate(-50%, -50%)",
-          background: "radial-gradient(circle, oklch(0.95 0.18 142 / 0.18) 0%, oklch(0.88 0.22 142 / 0.06) 40%, transparent 70%)",
+          background: "radial-gradient(ellipse, oklch(0.95 0.18 142 / 0.18) 0%, oklch(0.88 0.22 142 / 0.05) 50%, transparent 75%)",
           mixBlendMode: "screen",
         }}
       />
