@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { useState } from "react";
 import appCss from "../styles.css?url";
-import { CursorGlow } from "@/components/CursorGlow";
+import { BulbIntro } from "@/components/BulbIntro";
 
 function NotFoundComponent() {
   return (
@@ -86,9 +87,10 @@ function Footer() {
 }
 
 function RootComponent() {
+  const [lit, setLit] = useState(false);
   return (
-    <div className="min-h-screen bg-background bg-hero md:cursor-none">
-      <CursorGlow />
+    <div className="min-h-screen bg-background bg-hero">
+      {!lit && <BulbIntro onTurnOn={() => setLit(true)} />}
       <Header />
       <main className="pt-20">
         <Outlet />
