@@ -56,14 +56,14 @@ function Header() {
           <span className="font-display font-bold text-lg tracking-tight">DIGnity</span>
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <Link to="/" activeOptions={{ exact: true }} activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition">Home</Link>
-          <Link to="/services" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition">Services</Link>
-          <Link to="/pricing" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition">Pricing</Link>
-          <Link to="/about" activeProps={{ className: "text-foreground" }} className="hover:text-foreground transition">About</Link>
+          <a href="#home" className="hover:text-foreground transition">Home</a>
+          <a href="#services" className="hover:text-foreground transition">Services</a>
+          <a href="#pricing" className="hover:text-foreground transition">Pricing</a>
+          <a href="#about" className="hover:text-foreground transition">About</a>
         </nav>
-        <Link to="/contact" className="rounded-full bg-neon text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition glow-neon">
+        <a href="#contact" className="rounded-full bg-neon text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition glow-neon">
           Contact us
-        </Link>
+        </a>
       </div>
     </header>
   );
