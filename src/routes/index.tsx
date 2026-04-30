@@ -56,174 +56,208 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section id="home" className="px-6 pt-12 pb-24 md:pt-20 md:pb-32 relative overflow-hidden scroll-mt-24">
-        <div className="max-w-7xl mx-auto">
+      <section id="home" className="px-6 pt-24 pb-32 md:pt-40 md:pb-48 relative overflow-hidden scroll-mt-24">
+        <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
-            <div className="inline-flex items-center gap-3 pill px-5 py-2 mb-10">
-              <span className="w-2 h-2 rounded-full bg-neon animate-pulse" />
-              <span className="text-neon font-display font-semibold tracking-wider text-sm">DIGNITY</span>
-              <span className="text-muted-foreground text-xs tracking-widest">| WHERE CREATIVITY MEETS GROWTH</span>
+            <div className="inline-flex items-center gap-3 pill px-6 py-2.5 mb-12">
+              <span className="w-2 h-2 rounded-full bg-neon animate-pulse shadow-neon" />
+              <span className="text-neon font-display font-bold tracking-[0.2em] text-[10px] uppercase">DIGnity Agency</span>
+              <span className="text-muted-foreground text-[10px] tracking-widest uppercase">| Kerala's Premier Creative Studio</span>
             </div>
           </Reveal>
 
           <Reveal delay={100}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] text-balance max-w-5xl">
-              Creative solutions for <br />
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] text-balance max-w-5xl tracking-tighter">
+              Creative <br />
+              <span className="flowing-gradient">Solutions</span> for <br />
               <Typewriter
-                className="text-neon"
+                className="opacity-80"
                 words={["Digital growth.", "Bold brands.", "Viral content.", "Real results."]}
               />
             </h1>
           </Reveal>
 
           <Reveal delay={250}>
-            <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
-              We help brands grow with smart strategy, powerful content, and impactful marketing.
+            <p className="mt-12 text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance font-light leading-relaxed">
+              We engineer high-performance brand identities and cinematic content that scales businesses from Kerala to the global stage.
             </p>
           </Reveal>
 
           <Reveal delay={350}>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a href="#services" className="rounded-full bg-neon text-primary-foreground px-7 py-3 font-medium glow-neon hover:opacity-90 transition">
-                See our services
+            <div className="mt-12 flex flex-wrap gap-6">
+              <a href="#services" className="rounded-full bg-neon text-primary-foreground px-10 py-4 font-bold uppercase tracking-widest text-xs glow-neon hover:scale-105 transition-transform active:scale-95">
+                Explore Services
               </a>
-              <a href="#contact" className="rounded-full border border-border px-7 py-3 font-medium hover:border-neon hover:text-neon transition">
-                Start a project
+              <a href="#contact" className="rounded-full border border-border/60 glass px-10 py-4 font-bold uppercase tracking-widest text-xs hover:border-neon hover:text-neon transition-all">
+                Start a Project
               </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={500}>
-            <div className="mt-20 flex flex-wrap gap-3">
-              {features.map((f) => (
-                <span key={f} className="rounded-full bg-card border border-border/60 px-4 py-2 text-xs md:text-sm text-muted-foreground">
-                  {f}
-                </span>
-              ))}
             </div>
           </Reveal>
         </div>
+        
+        {/* Abstract background elements */}
+        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-neon/10 rounded-full blur-[120px] pointer-events-none animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon/5 rounded-full blur-[100px] pointer-events-none" />
       </section>
 
-      {/* Services */}
-      <section id="services" className="px-6 py-24 border-t border-border/40 scroll-mt-24">
+      {/* Services (Bento Grid) */}
+      <section id="services" className="px-6 py-32 scroll-mt-24 relative">
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <p className="text-neon text-sm font-semibold tracking-widest mb-4">SERVICES</p>
-            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] max-w-4xl">
-              Everything your brand needs to <span className="text-neon">grow.</span>
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              From strategy to storytelling — we handle the full spectrum of digital and creative work so you can focus on running your business.
-            </p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
+              <div className="max-w-2xl">
+                <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-4 uppercase">Capabilities</p>
+                <h2 className="text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter">
+                  Everything your brand <br />needs to <span className="flowing-gradient">dominate.</span>
+                </h2>
+              </div>
+              <p className="text-muted-foreground max-w-sm text-lg font-light italic">
+                "We don't just create; we engineer growth through cinematic storytelling and data-backed strategy."
+              </p>
+            </div>
           </Reveal>
 
-          <div className="mt-16 space-y-6">
-            {services.map((s, i) => (
-              <Reveal key={s.n} delay={i * 100}>
-                <div className="rounded-3xl border border-border/60 bg-card p-8 md:p-12 grid md:grid-cols-3 gap-8 hover:border-neon/40 transition">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+            {/* Service 01 - Large */}
+            <div className="md:col-span-8 md:row-span-2 relative group overflow-hidden rounded-3xl">
+              <Reveal className="h-full">
+                <div className="h-full glass-card p-10 flex flex-col justify-between relative z-10 border-neon/20 bg-neon/[0.02]">
                   <div>
-                    <div className="text-neon font-display text-sm mb-6">{s.n}</div>
-                    <h3 className="text-3xl md:text-4xl font-bold">{s.title}</h3>
-                    <p className="mt-3 text-muted-foreground">{s.desc}</p>
+                    <span className="text-neon text-4xl font-display font-black opacity-20">01</span>
+                    <h3 className="text-4xl md:text-5xl font-bold mt-4">{services[0].title}</h3>
+                    <p className="mt-4 text-muted-foreground text-lg max-w-md leading-relaxed">{services[0].desc}</p>
                   </div>
-                  <ul className="md:col-span-2 grid sm:grid-cols-2 gap-3 content-start">
-                    {s.items.map((it) => (
-                      <li key={it} className="flex items-start gap-3 text-sm">
-                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neon shrink-0" />
-                        <span>{it}</span>
-                      </li>
+                  <div className="grid grid-cols-2 gap-4 mt-8">
+                    {services[0].items.map((it) => (
+                      <div key={it} className="flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground uppercase group-hover:text-foreground transition-colors">
+                        <div className="w-1 h-1 rounded-full bg-neon shadow-neon" />
+                        {it}
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               </Reveal>
-            ))}
+            </div>
+
+            {/* Service 02 */}
+            <div className="md:col-span-4 md:row-span-1">
+              <Reveal className="h-full" delay={100}>
+                <div className="h-full glass-card p-8 flex flex-col justify-between">
+                  <div>
+                    <span className="text-neon text-2xl font-display font-black opacity-20">02</span>
+                    <h3 className="text-2xl font-bold mt-2">{services[1].title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{services[1].desc}</p>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Service 03 */}
+            <div className="md:col-span-4 md:row-span-1">
+              <Reveal className="h-full" delay={200}>
+                <div className="h-full glass-card p-8 flex flex-col justify-between bg-neon/5 border-neon/30">
+                  <div>
+                    <span className="text-neon text-2xl font-display font-black opacity-20">03</span>
+                    <h3 className="text-2xl font-bold mt-2">{services[2].title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{services[2].desc}</p>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Industry Badge Grid */}
+            <div className="md:col-span-12 mt-6">
+              <Reveal delay={300}>
+                <div className="glass p-6 rounded-2xl flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-50 hover:opacity-100 transition-opacity">
+                  {industries.slice(0, 5).map(ind => (
+                    <span key={ind} className="text-[10px] font-bold uppercase tracking-[0.2em]">{ind}</span>
+                  ))}
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="px-6 py-24 border-t border-border/40 scroll-mt-24">
-        <div className="max-w-7xl mx-auto">
+      <section id="pricing" className="px-6 py-32 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
-            <p className="text-neon text-sm font-semibold tracking-widest mb-4">INTRODUCTORY PACKAGES</p>
-            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] max-w-4xl">
-              Affordable plans. <span className="text-neon">Real growth.</span>
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              Pick a starting point. We'll tailor the deliverables to your business.
-            </p>
+            <div className="text-center mb-20">
+              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-4 uppercase">Investment Plans</p>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">Affordable packages. <br /><span className="text-neon">Global standards.</span></h2>
+            </div>
           </Reveal>
 
-          <div className="mt-16 grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {plans.map((p, i) => (
               <Reveal key={p.name} delay={i * 120}>
-                <div className={`rounded-3xl p-8 border h-full ${p.featured ? "bg-card border-neon glow-neon" : "bg-card border-border/60"}`}>
-                  {p.featured && <span className="inline-block bg-neon text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full mb-4">MOST POPULAR</span>}
-                  <h3 className="text-2xl font-bold">{p.name}</h3>
-                  <p className="text-muted-foreground text-sm mt-2 min-h-[40px]">{p.desc}</p>
-                  <div className="mt-6 flex items-baseline gap-1">
-                    <span className="text-4xl font-bold">₹{p.price}</span>
-                    <span className="text-muted-foreground text-sm">/ month</span>
+                <div className={`glass-card p-10 h-full flex flex-col ${p.featured ? "border-neon/40 bg-neon/[0.03] scale-105 shadow-neon/10" : ""}`}>
+                  {p.featured && <span className="text-[10px] font-bold text-neon tracking-[0.2em] mb-6 uppercase">Recommended Choice</span>}
+                  <h3 className="text-3xl font-bold tracking-tight">{p.name}</h3>
+                  <p className="text-muted-foreground text-sm mt-4 font-light leading-relaxed">{p.desc}</p>
+                  <div className="mt-8 flex items-baseline gap-2">
+                    <span className="text-5xl font-bold tracking-tighter">₹{p.price}</span>
+                    <span className="text-muted-foreground text-xs uppercase tracking-widest font-medium">/ month</span>
                   </div>
-                  <ul className="mt-6 space-y-3 text-sm">
+                  <div className="h-px w-full bg-border/40 my-8" />
+                  <ul className="space-y-4 flex-grow">
                     {p.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-neon shrink-0" />
-                        <span>{f}</span>
+                      <li key={f} className="flex items-center gap-3 text-sm font-light">
+                        <div className="w-1 h-1 rounded-full bg-neon shadow-neon" />
+                        {f}
                       </li>
                     ))}
                   </ul>
-                  <a href="#contact" className={`mt-8 block text-center rounded-full px-6 py-3 font-medium transition ${p.featured ? "bg-neon text-primary-foreground" : "border border-border hover:border-neon hover:text-neon"}`}>
-                    Get started
+                  <a href="#contact" className={`mt-10 block text-center rounded-full py-4 text-xs font-bold uppercase tracking-widest transition-all ${p.featured ? "bg-neon text-primary-foreground glow-neon" : "glass hover:border-neon hover:text-neon"}`}>
+                    Get Started
                   </a>
                 </div>
               </Reveal>
             ))}
           </div>
         </div>
+        
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-neon/5 blur-[120px] rounded-full pointer-events-none opacity-30" />
       </section>
 
       {/* About */}
-      <section id="about" className="px-6 py-24 border-t border-border/40 scroll-mt-24">
+      <section id="about" className="px-6 py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <Reveal>
-            <p className="text-neon text-sm font-semibold tracking-widest mb-4">ABOUT</p>
-            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95] max-w-5xl">
-              We build brands with <span className="text-neon">dignity</span>, clarity and impact.
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
-              DIGnity is a modern digital marketing and creative media company based in Kerala — combining marketing intelligence with cinematic creative execution.
-            </p>
-          </Reveal>
-
-          <div className="mt-16">
+          <div className="grid md:grid-cols-2 gap-20 items-center">
             <Reveal>
-              <h3 className="text-3xl md:text-4xl font-bold mb-8">Why choose <span className="text-neon">DIGnity?</span></h3>
-            </Reveal>
-            <div className="grid md:grid-cols-2 gap-4">
-              {reasons.map((r, i) => (
-                <Reveal key={r} delay={i * 70}>
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 flex items-start gap-4 h-full">
-                    <span className="text-neon font-display font-bold w-8 shrink-0">0{i + 1}</span>
-                    <span>{r}</span>
+              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">The Studio</p>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+                Building brands with <span className="text-neon">Dignity</span>, clarity and impact.
+              </h2>
+              <p className="mt-8 text-xl text-muted-foreground font-light leading-relaxed">
+                DIGnity is a modern creative studio based in Kerala, engineered to scale brands through a fusion of high-end cinematic production and strategic digital marketing.
+              </p>
+              
+              <div className="mt-12 space-y-4">
+                {reasons.slice(0, 3).map((r, i) => (
+                  <div key={r} className="flex items-center gap-4 group">
+                    <span className="text-neon font-display font-black text-xl opacity-20 group-hover:opacity-100 transition-opacity">0{i+1}</span>
+                    <p className="text-sm tracking-wide">{r}</p>
                   </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-16">
-            <Reveal>
-              <h3 className="text-3xl md:text-4xl font-bold mb-8">Industries we serve</h3>
-            </Reveal>
-            <Reveal delay={100}>
-              <div className="flex flex-wrap gap-3">
-                {industries.map((i) => (
-                  <span key={i} className="rounded-full border border-border/60 bg-card px-5 py-2.5 text-sm hover:border-neon hover:text-neon transition cursor-default">
-                    {i}
-                  </span>
                 ))}
+              </div>
+            </Reveal>
+            
+            <Reveal delay={200}>
+              <div className="relative">
+                <div className="aspect-square glass-card rounded-full flex items-center justify-center p-20 text-center relative z-10 border-neon/10">
+                   <div>
+                     <h3 className="text-3xl font-bold mb-4">Industries we <span className="text-neon">Lead</span></h3>
+                     <div className="flex flex-wrap justify-center gap-2">
+                       {industries.map(ind => (
+                         <span key={ind} className="px-3 py-1 bg-neon/5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-border/40">{ind}</span>
+                       ))}
+                     </div>
+                   </div>
+                </div>
+                {/* Decorative orbit */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-neon/5 rounded-full animate-spin-slow pointer-events-none" />
               </div>
             </Reveal>
           </div>
@@ -231,59 +265,55 @@ function Index() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="px-6 py-24 border-t border-border/40 scroll-mt-24">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
-          <Reveal>
-            <p className="text-neon text-sm font-semibold tracking-widest mb-4">CONTACT</p>
-            <h2 className="text-4xl md:text-6xl font-bold leading-[0.95]">
-              Let's build your brand with <span className="text-neon">DIGnity.</span>
-            </h2>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Tell us about your project and we'll get back within 24 hours.
-            </p>
+      <section id="contact" className="px-6 py-32 relative">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-20">
+            <Reveal>
+              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">Get in Touch</p>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+                Let's create something <span className="text-neon">legendary.</span>
+              </h2>
+              <p className="mt-8 text-xl text-muted-foreground font-light mb-12">
+                Drop us a line and let's start the conversation about your brand's future.
+              </p>
 
-            <div className="mt-12 space-y-6">
-              <div>
-                <p className="text-xs text-muted-foreground tracking-widest mb-1">ADDRESS</p>
-                <p className="text-lg">362, NH Bypass Potta, Mukundapuram,<br />Thrissur – 680722, Kerala</p>
+              <div className="space-y-8">
+                <div>
+                  <p className="text-[10px] text-muted-foreground tracking-widest mb-2 uppercase font-bold">Location</p>
+                  <p className="text-lg font-light tracking-wide">362, NH Bypass Potta, Mukundapuram,<br />Thrissur – 680722, Kerala</p>
+                </div>
+                <div>
+                  <p className="text-[10px] text-muted-foreground tracking-widest mb-2 uppercase font-bold">Contact</p>
+                  <a href="tel:9048191613" className="text-3xl font-bold hover:text-neon transition-colors tracking-tighter">+91 90481 91613</a>
+                </div>
               </div>
-              <div>
-                <p className="text-xs text-muted-foreground tracking-widest mb-1">PHONE</p>
-                <a href="tel:9048191613" className="text-lg hover:text-neon transition">+91 90481 91613</a>
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground tracking-widest mb-1">WHATSAPP</p>
-                <a href="https://wa.me/919048191613" className="text-lg hover:text-neon transition">Chat on WhatsApp →</a>
-              </div>
-            </div>
-          </Reveal>
+            </Reveal>
 
-          <Reveal delay={150}>
-            <form
-              className="rounded-3xl border border-border/60 bg-card p-8 md:p-10 space-y-5"
-              onSubmit={(e) => { e.preventDefault(); alert("Thanks! We'll be in touch."); }}
-            >
-              <div>
-                <label className="text-xs text-muted-foreground tracking-widest">NAME</label>
-                <input required type="text" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-neon transition" placeholder="Your name" />
-              </div>
-              <div>
-                <label className="text-xs text-muted-foreground tracking-widest">EMAIL</label>
-                <input required type="email" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-neon transition" placeholder="you@brand.com" />
-              </div>
-              <div>
-                <label className="text-xs text-muted-foreground tracking-widest">PHONE</label>
-                <input type="tel" className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-neon transition" placeholder="+91" />
-              </div>
-              <div>
-                <label className="text-xs text-muted-foreground tracking-widest">MESSAGE</label>
-                <textarea required rows={4} className="mt-2 w-full bg-background border border-border rounded-xl px-4 py-3 focus:outline-none focus:border-neon transition" placeholder="Tell us about your project" />
-              </div>
-              <button type="submit" className="w-full rounded-full bg-neon text-primary-foreground px-6 py-3 font-medium glow-neon hover:opacity-90 transition">
-                Send message
-              </button>
-            </form>
-          </Reveal>
+            <Reveal delay={150}>
+              <form
+                className="glass-card p-10 space-y-6"
+                onSubmit={(e) => { e.preventDefault(); alert("Thanks! We'll be in touch."); }}
+              >
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-bold">Name</label>
+                    <input required type="text" className="mt-3 w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-neon focus:bg-white/[0.08] transition-all font-light" placeholder="John Doe" />
+                  </div>
+                  <div>
+                    <label className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-bold">Email</label>
+                    <input required type="email" className="mt-3 w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-neon focus:bg-white/[0.08] transition-all font-light" placeholder="john@agency.com" />
+                  </div>
+                </div>
+                <div>
+                  <label className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-bold">Message</label>
+                  <textarea required rows={4} className="mt-3 w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-neon focus:bg-white/[0.08] transition-all font-light resize-none" placeholder="Tell us about your vision..." />
+                </div>
+                <button type="submit" className="w-full rounded-full bg-neon text-primary-foreground py-5 text-xs font-black uppercase tracking-[0.3em] glow-neon hover:scale-[1.02] active:scale-[0.98] transition-all">
+                  Send Inquiry
+                </button>
+              </form>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>

@@ -49,19 +49,19 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-5 backdrop-blur-md bg-background/60 border-b border-border/40">
+    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass neon-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-lg bg-neon flex items-center justify-center text-primary-foreground font-bold text-lg">D</div>
-          <span className="font-display font-bold text-lg tracking-tight">DIGnity</span>
+        <Link to="/" className="flex items-center gap-2 group">
+          <div className="w-9 h-9 rounded-lg bg-neon flex items-center justify-center text-primary-foreground font-bold text-lg transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-neon">D</div>
+          <span className="font-display font-bold text-lg tracking-tight group-hover:text-neon transition-colors">DIGnity</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
-          <a href="#home" className="hover:text-foreground transition">Home</a>
-          <a href="#services" className="hover:text-foreground transition">Services</a>
-          <a href="#pricing" className="hover:text-foreground transition">Pricing</a>
-          <a href="#about" className="hover:text-foreground transition">About</a>
+        <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest text-muted-foreground uppercase">
+          <a href="#home" className="hover:text-neon transition-colors">Home</a>
+          <a href="#services" className="hover:text-neon transition-colors">Services</a>
+          <a href="#pricing" className="hover:text-neon transition-colors">Pricing</a>
+          <a href="#about" className="hover:text-neon transition-colors">About</a>
         </nav>
-        <a href="#contact" className="rounded-full bg-neon text-primary-foreground px-5 py-2 text-sm font-medium hover:opacity-90 transition glow-neon">
+        <a href="#contact" className="rounded-full bg-neon text-primary-foreground px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition glow-neon">
           Contact us
         </a>
       </div>
