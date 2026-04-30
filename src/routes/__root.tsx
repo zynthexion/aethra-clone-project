@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
+import { CursorGlow } from "@/components/CursorGlow";
 
 function NotFoundComponent() {
   return (
@@ -87,6 +88,7 @@ function Footer() {
 function RootComponent() {
   return (
     <div className="min-h-screen bg-background bg-hero">
+      <CursorGlow />
       <Header />
       <main className="pt-20">
         <Outlet />

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
+import { useRef } from "react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,18 +26,18 @@ const services = [
     n: "02",
     title: "Creative Production",
     desc: "Cinematic content that makes brands unforgettable.",
-    items: ["Ad Films", "Product Shoots", "Corporate Videos", "Event Coverage", "Reels & Short Form Content", "Brand Story Videos"],
+    items: ["Commercial Video Production", "Product Photography", "UGC & Influencer Style Ads", "High-End Video Editing", "Drone & Event Coverage", "Social Media Content Creation"],
   },
   {
     n: "03",
     title: "Branding Solutions",
     desc: "Identity systems that look as good as they perform.",
-    items: ["Logo Design", "Brand Identity", "Posters & Creatives", "Packaging Design", "Business Profiles", "Brand Guidelines"],
+    items: ["Logo & Visual Identity", "Brand Strategy & Tone", "UI/UX Website Design", "Packaging & Print Design", "Social Media Branding", "Full Rebranding Service"],
   },
 ];
 
 const reasons = [
-  "Creative team with cinematic quality output",
+  "End-to-end creative & marketing management",
   "Performance-driven marketing approach",
   "Affordable packages for growing businesses",
   "Fast execution & professional communication",
@@ -53,6 +54,20 @@ const plans = [
 ];
 
 function Index() {
+  const servicesRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!servicesRef.current) return;
+    const cards = servicesRef.current.getElementsByClassName("spotlight-card");
+    for (const card of cards) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      (card as HTMLElement).style.setProperty("--mouse-x", `${x}px`);
+      (card as HTMLElement).style.setProperty("--mouse-y", `${y}px`);
+    }
+  };
+
   return (
     <>
       {/* Hero */}
@@ -100,81 +115,58 @@ function Index() {
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon/5 rounded-full blur-[100px] pointer-events-none" />
       </section>
 
-      {/* Services (Bento Grid) */}
-      <section id="services" className="px-6 py-32 scroll-mt-24 relative">
+      {/* Services - Redesigned Spotlight Grid */}
+      <section 
+        id="services" 
+        className="px-6 py-32 scroll-mt-24 relative overflow-hidden"
+        onMouseMove={handleMouseMove}
+        ref={servicesRef}
+      >
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20">
-              <div className="max-w-2xl">
-                <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-4 uppercase">Capabilities</p>
-                <h2 className="text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter">
-                  Everything your brand <br />needs to <span className="flowing-gradient">dominate.</span>
-                </h2>
-              </div>
-              <p className="text-muted-foreground max-w-sm text-lg font-light italic">
-                "We don't just create; we engineer growth through cinematic storytelling and data-backed strategy."
+            <div className="text-center mb-24">
+              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-4 uppercase">Capabilities</p>
+              <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
+                High-impact <span className="flowing-gradient">Solutions.</span>
+              </h2>
+              <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                We combine cinematic production with data-driven strategy to build brands that don't just exist—they dominate.
               </p>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
-            {/* Service 01 - Large */}
-            <div className="md:col-span-8 md:row-span-2 relative group overflow-hidden rounded-3xl">
-              <Reveal className="h-full">
-                <div className="h-full glass-card p-10 flex flex-col justify-between relative z-10 border-neon/20 bg-neon/[0.02]">
-                  <div>
-                    <span className="text-neon text-4xl font-display font-black opacity-20">01</span>
-                    <h3 className="text-4xl md:text-5xl font-bold mt-4">{services[0].title}</h3>
-                    <p className="mt-4 text-muted-foreground text-lg max-w-md leading-relaxed">{services[0].desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((s, i) => (
+              <Reveal key={s.n} delay={i * 150} y={40}>
+                <div className="spotlight-card rounded-[2rem] p-10 h-full flex flex-col group min-h-[450px]">
+                  <span className="huge-number">{s.n}</span>
+                  
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-2xl bg-neon/10 border border-neon/20 flex items-center justify-center mb-8 group-hover:bg-neon group-hover:text-primary-foreground transition-all duration-500 shadow-neon/0 group-hover:shadow-neon">
+                      <span className="font-display font-black text-xl">{s.n}</span>
+                    </div>
+                    
+                    <h3 className="text-3xl font-bold tracking-tight mb-4 group-hover:text-neon transition-colors duration-500">{s.title}</h3>
+                    <p className="text-muted-foreground font-light leading-relaxed mb-8">{s.desc}</p>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {s.items.map(item => (
+                        <span key={item} className="px-3 py-1.5 rounded-full glass text-[9px] font-bold uppercase tracking-widest border border-border/40 group-hover:border-neon/30 transition-colors">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-4 mt-8">
-                    {services[0].items.map((it) => (
-                      <div key={it} className="flex items-center gap-2 text-xs font-medium tracking-wide text-muted-foreground uppercase group-hover:text-foreground transition-colors">
-                        <div className="w-1 h-1 rounded-full bg-neon shadow-neon" />
-                        {it}
-                      </div>
-                    ))}
+                  
+                  <div className="mt-auto pt-10 relative z-10">
+                    <a href="#contact" className="inline-flex items-center gap-2 text-neon text-[10px] font-bold uppercase tracking-widest group/link">
+                      Learn More 
+                      <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                    </a>
                   </div>
                 </div>
               </Reveal>
-            </div>
-
-            {/* Service 02 */}
-            <div className="md:col-span-4 md:row-span-1">
-              <Reveal className="h-full" delay={100}>
-                <div className="h-full glass-card p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-neon text-2xl font-display font-black opacity-20">02</span>
-                    <h3 className="text-2xl font-bold mt-2">{services[1].title}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{services[1].desc}</p>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Service 03 */}
-            <div className="md:col-span-4 md:row-span-1">
-              <Reveal className="h-full" delay={200}>
-                <div className="h-full glass-card p-8 flex flex-col justify-between bg-neon/5 border-neon/30">
-                  <div>
-                    <span className="text-neon text-2xl font-display font-black opacity-20">03</span>
-                    <h3 className="text-2xl font-bold mt-2">{services[2].title}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground line-clamp-2">{services[2].desc}</p>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Industry Badge Grid */}
-            <div className="md:col-span-12 mt-6">
-              <Reveal delay={300}>
-                <div className="glass p-6 rounded-2xl flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-50 hover:opacity-100 transition-opacity">
-                  {industries.slice(0, 5).map(ind => (
-                    <span key={ind} className="text-[10px] font-bold uppercase tracking-[0.2em]">{ind}</span>
-                  ))}
-                </div>
-              </Reveal>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -191,19 +183,19 @@ function Index() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((p, i) => (
-              <Reveal key={p.name} delay={i * 120}>
-                <div className={`glass-card p-10 h-full flex flex-col ${p.featured ? "border-neon/40 bg-neon/[0.03] scale-105 shadow-neon/10" : ""}`}>
-                  {p.featured && <span className="text-[10px] font-bold text-neon tracking-[0.2em] mb-6 uppercase">Recommended Choice</span>}
-                  <h3 className="text-3xl font-bold tracking-tight">{p.name}</h3>
+              <Reveal key={p.name} delay={200 + i * 200} y={60}>
+                <div className={`glass-card p-10 h-full flex flex-col group ${p.featured ? "border-neon/40 bg-neon/[0.03] scale-105 shadow-neon/10" : ""}`}>
+                  {p.featured && <span className="text-[10px] font-bold text-neon tracking-[0.2em] mb-6 uppercase animate-pulse">Recommended Choice</span>}
+                  <h3 className="text-3xl font-bold tracking-tight group-hover:text-neon transition-colors">{p.name}</h3>
                   <p className="text-muted-foreground text-sm mt-4 font-light leading-relaxed">{p.desc}</p>
                   <div className="mt-8 flex items-baseline gap-2">
-                    <span className="text-5xl font-bold tracking-tighter">₹{p.price}</span>
+                    <span className="text-5xl font-bold tracking-tighter transition-transform group-hover:scale-110 origin-left duration-500">₹{p.price}</span>
                     <span className="text-muted-foreground text-xs uppercase tracking-widest font-medium">/ month</span>
                   </div>
-                  <div className="h-px w-full bg-border/40 my-8" />
+                  <div className="h-px w-full bg-border/40 my-8 group-hover:bg-neon/40 transition-colors" />
                   <ul className="space-y-4 flex-grow">
-                    {p.features.map((f) => (
-                      <li key={f} className="flex items-center gap-3 text-sm font-light">
+                    {p.features.map((f, idx) => (
+                      <li key={f} className="flex items-center gap-3 text-sm font-light transition-transform" style={{ transitionDelay: `${idx * 50}ms` }}>
                         <div className="w-1 h-1 rounded-full bg-neon shadow-neon" />
                         {f}
                       </li>
