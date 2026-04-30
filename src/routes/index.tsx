@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroCamera from "@/assets/hero-camera.jpg";
 import growth from "@/assets/growth.jpg";
+import { Typewriter } from "@/components/Typewriter";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,8 +28,11 @@ function Index() {
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] text-balance max-w-5xl">
-            Creative solutions. <br />
-            <span className="text-neon">Digital growth.</span>
+            Creative solutions for <br />
+            <Typewriter
+              className="text-neon"
+              words={["Digital growth.", "Bold brands.", "Viral content.", "Real results."]}
+            />
           </h1>
 
           <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl text-balance">
