@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
+  "functions": {
+    "api/server.js": {
+      "runtime": "@vercel/node",
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/server"
+    }
+  ]
+}
