@@ -3,15 +3,17 @@ import react from "@vitejs/plugin-react";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig({
   plugins: [
-    tanstackStart(),
+    tanstackStart({
+      server: {
+        preset: "vercel",
+      },
+    }),
     react(),
     tailwindcss(),
     tsconfigPaths(),
-    process.env.NODE_ENV === "production" && cloudflare(),
   ].filter(Boolean),
   resolve: {
     alias: {
