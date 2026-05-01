@@ -51,7 +51,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function Header() {
   return (
-    <header className="sticky top-0 z-50 px-6 py-4 glass neon-border bg-background/50 backdrop-blur-xl">
+    <header 
+      style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 100 }}
+      className="px-6 py-4 glass-solid neon-border neon-flow bg-background shadow-lg"
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex flex-col group">
           <Logo size="md" className="group-hover:scale-105 transition-transform" />
@@ -92,13 +95,15 @@ function Footer() {
 
 function RootComponent() {
   return (
-    <div className="min-h-screen bg-background bg-hero">
-      <CursorGlow />
+    <>
       <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+      <div className="min-h-screen bg-background bg-hero pt-24">
+        <CursorGlow />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

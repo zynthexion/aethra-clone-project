@@ -82,13 +82,14 @@ function Index() {
           </Reveal>
 
           <Reveal delay={100}>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] text-balance max-w-5xl tracking-tighter">
-              Creative <br />
-              <span className="flowing-gradient">Solutions</span> for <br />
-              <Typewriter
-                className="opacity-80"
-                words={["Digital growth.", "Bold brands.", "Viral content.", "Real results."]}
-              />
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tighter min-h-[4.2em] md:min-h-0">
+              <span className="block">Creative</span>
+              <span className="block mt-1"><span className="flowing-gradient">Solutions</span> for</span>
+              <span className="block mt-1 opacity-80">
+                <Typewriter
+                  words={["Digital growth.", "Bold brands.", "Viral content.", "Real results."]}
+                />
+              </span>
             </h1>
           </Reveal>
 
