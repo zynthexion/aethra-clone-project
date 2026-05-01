@@ -31,7 +31,7 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Catamaran:wght@900&family=Lexend+Deca:wght@400;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -50,11 +50,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 glass neon-border">
+    <header className="sticky top-0 z-50 px-6 py-4 glass neon-border bg-background/50 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-lg bg-neon flex items-center justify-center text-primary-foreground font-bold text-lg transition-transform group-hover:scale-110 group-hover:rotate-3 shadow-neon">D</div>
-          <span className="font-display font-bold text-lg tracking-tight group-hover:text-neon transition-colors">DIGnity</span>
+        <Link to="/" className="flex flex-col group">
+          <div className="flex items-center gap-3">
+            <span style={{ fontFamily: "'Catamaran', sans-serif", "--y-offset": "22px" } as any} className="text-7xl font-black leading-none animate-pulse-color transition-transform group-hover:scale-110">"</span>
+            <span style={{ fontFamily: "'Lexend Deca', sans-serif" }} className="font-bold text-2xl tracking-tight group-hover:text-neon transition-colors leading-none lowercase pt-3">digginity.</span>
+          </div>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mt-1">We give your brand a voice</span>
         </Link>
         <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest text-muted-foreground uppercase">
           <a href="#home" className="hover:text-neon transition-colors">Home</a>
@@ -72,14 +75,21 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border/40 px-6 py-10 mt-20">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-neon flex items-center justify-center text-primary-foreground font-bold text-sm">D</div>
-          <span className="font-display font-semibold text-foreground">DIGnity</span>
-          <span className="ml-2">© {new Date().getFullYear()}</span>
+    <footer className="border-t border-border/40 px-6 py-16 mt-20 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+        <div className="flex flex-col items-center md:items-start gap-2">
+          <div className="flex items-center gap-3">
+            <span style={{ fontFamily: "'Catamaran', sans-serif", "--y-offset": "18px" } as any} className="text-6xl font-black animate-pulse-color leading-none">"</span>
+            <span style={{ fontFamily: "'Lexend Deca', sans-serif" }} className="font-bold text-2xl text-foreground tracking-tight lowercase pt-2">digginity.</span>
+          </div>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">We give your brand a voice</p>
         </div>
-        <p className="text-xs">Thrissur, Kerala · 9048191613</p>
+
+        <div className="flex flex-col items-center md:items-end gap-2 text-muted-foreground">
+          <p className="text-xs uppercase tracking-widest font-bold text-foreground">Thrissur, Kerala</p>
+          <a href="tel:9048191613" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">+91 90481 91613</a>
+          <p className="text-[10px] opacity-40 mt-4">© {new Date().getFullYear()} DIGnity Creative Solutions.</p>
+        </div>
       </div>
     </footer>
   );
@@ -90,7 +100,7 @@ function RootComponent() {
     <div className="min-h-screen bg-background bg-hero">
       <CursorGlow />
       <Header />
-      <main className="pt-20">
+      <main>
         <Outlet />
       </main>
       <Footer />

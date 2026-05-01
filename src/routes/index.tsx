@@ -71,7 +71,7 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section id="home" className="px-6 pt-24 pb-32 md:pt-40 md:pb-48 relative overflow-hidden scroll-mt-24">
+      <section id="home" className="px-6 pt-12 pb-32 md:pt-20 md:pb-48 relative overflow-hidden scroll-mt-24">
         <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
             <div className="inline-flex items-center gap-3 pill px-6 py-2.5 mb-12">
@@ -236,20 +236,34 @@ function Index() {
               </div>
             </Reveal>
             
-            <Reveal delay={200}>
-              <div className="relative">
-                <div className="aspect-square glass-card rounded-full flex items-center justify-center p-20 text-center relative z-10 border-neon/10">
-                   <div>
-                     <h3 className="text-3xl font-bold mb-4">Industries we <span className="text-neon">Lead</span></h3>
-                     <div className="flex flex-wrap justify-center gap-2">
-                       {industries.map(ind => (
-                         <span key={ind} className="px-3 py-1 bg-neon/5 rounded-full text-[10px] font-bold uppercase tracking-widest border border-border/40">{ind}</span>
+            <Reveal delay={200} className="w-full">
+              <div className="relative group/orbit">
+                <div className="aspect-square glass-card rounded-full flex items-center justify-center p-8 md:p-20 text-center relative z-10 border-neon/10 backdrop-blur-3xl">
+                   <div className="relative z-10">
+                     <h3 className="text-3xl md:text-4xl font-bold mb-8 tracking-tighter">Industries we <span className="flowing-gradient">Lead.</span></h3>
+                     <div className="flex flex-wrap justify-center gap-3 max-w-md mx-auto">
+                       {industries.map((ind, idx) => (
+                         <span 
+                           key={ind} 
+                           className="px-4 py-2 bg-neon/5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] border border-border/40 animate-in fade-in zoom-in duration-1000 hover:border-neon/50 transition-colors"
+                           style={{ animationDelay: `${400 + idx * 80}ms`, animationFillMode: "both" }}
+                         >
+                           {ind}
+                         </span>
                        ))}
                      </div>
                    </div>
+                   {/* Inner glow pulse */}
+                   <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,var(--neon)_0%,transparent_70%)] opacity-0 group-hover/orbit:opacity-10 transition-opacity duration-1000" />
                 </div>
-                {/* Decorative orbit */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-neon/5 rounded-full animate-spin-slow pointer-events-none" />
+                
+                {/* Expanding Decorative orbits */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-neon/5 rounded-full animate-expand-orbit pointer-events-none" style={{ animationDelay: "200ms" }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-neon/5 rounded-full animate-expand-orbit pointer-events-none" style={{ animationDelay: "400ms" }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[160%] h-[160%] border border-neon/5 rounded-full animate-expand-orbit pointer-events-none" style={{ animationDelay: "600ms" }} />
+                
+                {/* Slow spinning orbit element */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[125%] h-[125%] border-t border-neon/20 rounded-full animate-spin-slow pointer-events-none" />
               </div>
             </Reveal>
           </div>
