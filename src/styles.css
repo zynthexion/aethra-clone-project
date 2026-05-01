@@ -320,6 +320,26 @@
     animation: flow 4s linear infinite;
   }
 
+  @keyframes color-cycle {
+    0%, 100% { color: var(--neon); }
+    33% { color: oklch(0.7 0.2 250); }
+    66% { color: oklch(0.8 0.25 320); }
+  }
+
+  .animate-color-cycle {
+    animation: color-cycle 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dig {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.2); }
+  }
+
+  .animate-pulse-dig {
+    display: inline-block;
+    animation: pulse-dig 2s ease-in-out infinite;
+  }
+
   @keyframes flow {
     to { background-position: 200% center; }
   }
