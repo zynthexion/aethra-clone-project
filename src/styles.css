@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
+@font-face {
+  font-family: 'Brice-SemiExpandedSemiBold';
+  src: url('./assets/brice-semi-expanded-semi-bold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 @custom-variant dark (&:is(.dark *));
 

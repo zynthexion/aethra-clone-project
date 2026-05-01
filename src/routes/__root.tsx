@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
 import { CursorGlow } from "@/components/CursorGlow";
+import { Logo } from "@/components/Logo";
 
 function NotFoundComponent() {
   return (
@@ -31,7 +32,7 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Catamaran:wght@900&family=Lexend+Deca:wght@400;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Catamaran:wght@900&family=Lexend+Deca:wght@400;700&family=Poppins:wght@400;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -53,10 +54,7 @@ function Header() {
     <header className="sticky top-0 z-50 px-6 py-4 glass neon-border bg-background/50 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex flex-col group">
-          <div className="flex items-center gap-3">
-            <span style={{ fontFamily: "'Catamaran', sans-serif", "--y-offset": "22px" } as any} className="text-7xl font-black leading-none animate-pulse-color transition-transform group-hover:scale-110">"</span>
-            <span style={{ fontFamily: "'Lexend Deca', sans-serif" }} className="font-bold text-2xl tracking-tight group-hover:text-neon transition-colors leading-none lowercase pt-3">digginity.</span>
-          </div>
+          <Logo size="md" className="group-hover:scale-105 transition-transform" />
           <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mt-1">We give your brand a voice</span>
         </Link>
         <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest text-muted-foreground uppercase">
@@ -78,10 +76,7 @@ function Footer() {
     <footer className="border-t border-border/40 px-6 py-16 mt-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="flex flex-col items-center md:items-start gap-2">
-          <div className="flex items-center gap-3">
-            <span style={{ fontFamily: "'Catamaran', sans-serif", "--y-offset": "18px" } as any} className="text-6xl font-black animate-pulse-color leading-none">"</span>
-            <span style={{ fontFamily: "'Lexend Deca', sans-serif" }} className="font-bold text-2xl text-foreground tracking-tight lowercase pt-2">digginity.</span>
-          </div>
+          <Logo size="md" />
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">We give your brand a voice</p>
         </div>
 
