@@ -101,10 +101,10 @@ function Index() {
 
           <Reveal delay={350}>
             <div className="mt-12 flex flex-wrap gap-6">
-              <a href="#services" className="rounded-full bg-neon text-primary-foreground px-10 py-4 font-bold uppercase tracking-widest text-xs glow-neon hover:scale-105 transition-transform active:scale-95">
+              <a href="#services" className="btn-keyboard px-10 py-4 text-neon text-xs">
                 Explore Services
               </a>
-              <a href="#contact" className="rounded-full border border-border/60 glass px-10 py-4 font-bold uppercase tracking-widest text-xs hover:border-neon hover:text-neon transition-all">
+              <a href="#contact" className="btn-keyboard px-10 py-4 text-xs">
                 Start a Project
               </a>
             </div>
@@ -202,7 +202,7 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                  <a href="#contact" className={`mt-10 block text-center rounded-full py-4 text-xs font-bold uppercase tracking-widest transition-all ${p.featured ? "bg-neon text-primary-foreground glow-neon" : "glass hover:border-neon hover:text-neon"}`}>
+                  <a href="#contact" className={`mt-10 btn-keyboard py-4 text-xs w-full ${p.featured ? "text-neon border-neon/50" : ""}`}>
                     Get Started
                   </a>
                 </div>
@@ -315,7 +315,7 @@ function Index() {
                   <label className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase font-bold">Message</label>
                   <textarea required rows={4} className="mt-3 w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:outline-none focus:border-neon focus:bg-white/[0.08] transition-all font-light resize-none" placeholder="Tell us about your vision..." />
                 </div>
-                <button type="submit" className="w-full rounded-full bg-neon text-primary-foreground py-5 text-xs font-black uppercase tracking-[0.3em] glow-neon hover:scale-[1.02] active:scale-[0.98] transition-all">
+                <button type="submit" className="w-full btn-keyboard py-5 text-xs text-neon">
                   Send Inquiry
                 </button>
               </form>

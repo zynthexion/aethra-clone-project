@@ -9,6 +9,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Dedicool';
+  src: url('./assets/Dedicool.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -40,14 +48,14 @@
   --color-ring: var(--ring);
   --color-neon: var(--neon);
   --color-neon-soft: var(--neon-soft);
-  --font-display: "Space Grotesk", sans-serif;
+  --font-display: "Dedicool", monospace;
   --font-sans: "Inter", sans-serif;
 }
 
 :root {
   --radius: 1rem;
   /* Pure dark base */
-  --background: oklch(0.13 0.01 150);
+  --background: #000000;
   --foreground: oklch(0.96 0.02 100);
   --card: oklch(0.16 0.012 150);
   --card-foreground: oklch(0.96 0.02 100);
@@ -70,9 +78,7 @@
   --neon: oklch(0.88 0.24 142);
   --neon-soft: oklch(0.95 0.18 142);
 
-  --gradient-hero: radial-gradient(circle at 20% 20%, oklch(0.88 0.22 142 / 0.15), transparent 40%),
-                   radial-gradient(circle at 80% 80%, oklch(0.7 0.2 142 / 0.08), transparent 50%),
-                   radial-gradient(circle at 50% 50%, oklch(0.13 0.01 150), oklch(0.1 0.01 150));
+  --gradient-hero: #000000;
   --shadow-neon: 0 0 20px oklch(0.88 0.22 142 / 0.2), 0 0 40px oklch(0.88 0.22 142 / 0.1);
   --shadow-card: 0 20px 50px -12px oklch(0 0 0 / 0.8);
   
@@ -80,7 +86,7 @@
 }
 
 .dark {
-  --background: oklch(0.1 0.01 150);
+  --background: #000000;
   --foreground: oklch(0.98 0.01 100);
 }
 
@@ -130,6 +136,31 @@
   .glass-solid {
     background: var(--background);
     border: 1px solid oklch(1 0 0 / 0.05);
+  }
+
+  .btn-keyboard {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: oklch(0.15 0.01 150); /* zinc-900 equivalent */
+    color: var(--foreground);
+    border: 2px solid oklch(0.2 0.01 150);
+    border-bottom-width: 6px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.1s ease;
+    cursor: pointer;
+  }
+
+  .btn-keyboard:hover {
+    background-color: oklch(0.2 0.01 150);
+  }
+
+  .btn-keyboard:active {
+    transform: translateY(4px);
+    border-bottom-width: 2px;
   }
 
   .glass-card {
