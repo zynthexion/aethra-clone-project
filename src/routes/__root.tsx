@@ -105,7 +105,14 @@ function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10 text-sm font-medium tracking-widest text-muted-foreground uppercase">
-          <a href="#home" className="hover:text-neon transition-colors">Home</a>
+          <Link 
+            to="/" 
+            activeOptions={{ exact: true }}
+            className="hover:text-neon transition-colors"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            Home
+          </Link>
           <a href="#services" className="hover:text-neon transition-colors">Services</a>
           <a href="#pricing" className="hover:text-neon transition-colors">Pricing</a>
         </div>
@@ -150,7 +157,10 @@ function Header() {
                 <nav className="flex flex-col gap-10 text-center">
                   <Link 
                     to="/" 
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                     className="text-5xl font-bold tracking-tighter hover:text-neon transition-colors"
                   >
                     HOME

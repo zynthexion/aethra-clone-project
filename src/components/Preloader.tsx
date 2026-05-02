@@ -6,12 +6,23 @@ export const Preloader: React.FC = () => {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
+    // Only run if not already shown in this session
+    const hasBeenShown = sessionStorage.getItem('preloader-shown');
+    if (hasBeenShown) {
+      setIsVisible(false);
+      return;
+    }
+
+    // Force scroll to top on first load
+    window.scrollTo(0, 0);
+    
     const timer = setTimeout(() => {
       setIsExiting(true);
       setTimeout(() => {
         setIsVisible(false);
+        sessionStorage.setItem('preloader-shown', 'true');
       }, 1200);
-    }, 9500); // 9.5 seconds for the 3-step sequence
+    }, 9500);
 
     return () => clearTimeout(timer);
   }, []);
