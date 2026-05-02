@@ -1,0 +1,132 @@
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s cubic-bezier(0.8, 0, 0.2, 1);
+}
+
+.preloader-overlay.exit {
+  opacity: 0;
+  filter: blur(40px);
+}
+
+.movie-style {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  font-weight: 300;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  letter-spacing: 0.1em;
+  text-align: center;
+  position: relative;
+}
+
+.quote-line {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(20px);
+}
+
+/* STEP 1: Brand Hook */
+.line-1 {
+  animation: step-1 9.5s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes step-1 {
+  0% { opacity: 0; filter: blur(10px); transform: translateY(20px); }
+  10%, 25% { opacity: 0.7; filter: blur(0); transform: translateY(0); }
+  35%, 100% { opacity: 0; filter: blur(20px); transform: translateY(-20px); }
+}
+
+/* STEP 2: Bridge Phrase */
+.line-2 {
+  animation: step-2 9.5s ease-in-out forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes step-2 {
+  0% { opacity: 0; filter: blur(10px); transform: translateY(20px); }
+  10%, 25% { opacity: 0.7; filter: blur(0); transform: translateY(0); }
+  35%, 100% { opacity: 0; filter: blur(20px); transform: translateY(-20px); }
+}
+
+/* STEP 3: Logo Reveal */
+.logo-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-transformation-container {
+  display: inline-flex;
+  font-family: 'Dedicool', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 12vw, 6rem);
+  opacity: 0;
+  animation: logo-step-3 9.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+  animation-delay: 6s;
+  -webkit-text-stroke: 1.2px currentColor;
+}
+
+@keyframes logo-step-3 {
+  0% { opacity: 0; filter: blur(20px); transform: scale(0.8); }
+  15% { opacity: 1; filter: blur(0); transform: scale(1); }
+  30% { transform: scale(1); }
+  45%, 100% { 
+    opacity: 1; 
+    transform: scale(1.4) translateY(0); /* Final centerpiece size */
+    filter: blur(0);
+  }
+}
+
+.brand-dig, .brand-nity {
+  animation: logo-color-cycle 4s linear infinite;
+}
+
+@keyframes logo-color-cycle {
+  0%, 100% { color: #a3ff00; text-shadow: 0 0 20px rgba(163, 255, 0, 0.5); }
+  33% { color: #00f2ff; text-shadow: 0 0 20px rgba(0, 242, 255, 0.5); }
+  66% { color: #ff00ea; text-shadow: 0 0 20px rgba(255, 0, 234, 0.5); }
+}
+
+/* Background Atmosphere */
+.preloader-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(163, 255, 0, 0.05) 0%, transparent 70%);
+  opacity: 0;
+  animation: atmosphere-fade 9.5s ease-in-out forwards;
+  pointer-events: none;
+}
+
+@keyframes atmosphere-fade {
+  0%, 75% { opacity: 0; }
+  90% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+  .logo-transformation-container {
+    font-size: 3rem;
+  }
+}

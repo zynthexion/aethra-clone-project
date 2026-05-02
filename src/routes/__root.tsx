@@ -253,9 +253,12 @@ function Header() {
 }
 
 
+import { Preloader } from "@/components/Preloader";
+
 function RootComponent() {
   return (
     <>
+      <Preloader />
       <Header />
       <div className="min-h-screen bg-background bg-hero pt-20 relative">
         <div className="fixed inset-0 z-[5] pointer-events-none opacity-40">
