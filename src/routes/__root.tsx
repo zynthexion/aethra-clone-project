@@ -1,6 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
-import { CursorGlow } from "@/components/CursorGlow";
+import LiquidEther from "@/components/LiquidEther";
 import { Logo } from "@/components/Logo";
 
 function NotFoundComponent() {
@@ -32,7 +32,7 @@ export const Route = createRootRoute({
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Catamaran:wght@900&family=Lexend+Deca:wght@400;700&family=Poppins:wght@400;600;700&family=Pixelify+Sans:wght@400;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Catamaran:wght@900&family=Lexend+Deca:wght@400;700&family=Poppins:wght@400;600;700&family=Pixelify+Sans:wght@400;700&family=Quantico:wght@400;700&family=Geo&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -58,15 +58,14 @@ function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link to="/" className="flex flex-col group">
           <Logo size="md" className="group-hover:scale-105 transition-transform" />
-          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mt-1">We give your brand a voice</span>
+          <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium mt-1">Where creativity meets growth</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-10 text-xs font-medium tracking-widest text-muted-foreground uppercase">
+        <div className="hidden md:flex items-center gap-10 text-sm font-medium tracking-widest text-muted-foreground uppercase">
           <a href="#home" className="hover:text-neon transition-colors">Home</a>
           <a href="#services" className="hover:text-neon transition-colors">Services</a>
           <a href="#pricing" className="hover:text-neon transition-colors">Pricing</a>
-          <a href="#about" className="hover:text-neon transition-colors">About</a>
-        </nav>
-        <a href="#contact" className="rounded-full bg-neon text-primary-foreground px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:opacity-90 transition glow-neon">
+        </div>
+        <a href="#contact" className="btn-keyboard px-6 py-2 uppercase">
           Contact us
         </a>
       </div>
@@ -80,7 +79,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
         <div className="flex flex-col items-center md:items-start gap-2">
           <Logo size="md" />
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">We give your brand a voice</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">Where creativity meets growth</p>
         </div>
 
         <div className="flex flex-col items-center md:items-end gap-2 text-muted-foreground">
@@ -97,8 +96,15 @@ function RootComponent() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-background bg-hero pt-24">
-        <CursorGlow />
+      <div className="min-h-screen bg-background bg-hero pt-20 relative overflow-hidden">
+        <div className="fixed inset-0 z-[5] pointer-events-none opacity-40">
+          <LiquidEther 
+            colors={[ '#a3ff00', '#d4ff70', '#1a4d00' ]}
+            mouseForce={25}
+            cursorSize={120}
+            autoDemo={true}
+          />
+        </div>
         <main>
           <Outlet />
         </main>

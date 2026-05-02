@@ -17,6 +17,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'MiniPixel7';
+  src: url('./assets/mini-pixel-7.regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -48,8 +56,9 @@
   --color-ring: var(--ring);
   --color-neon: var(--neon);
   --color-neon-soft: var(--neon-soft);
-  --font-display: "Dedicool", monospace;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Quantico", sans-serif;
+  --font-sans: "Quantico", sans-serif;
+  --font-geo: "Geo", sans-serif;
 }
 
 :root {
@@ -122,6 +131,7 @@
 }
 
 @layer utilities {
+  .font-geo { font-family: var(--font-geo); }
   .text-neon { color: var(--neon); }
   .bg-neon { background-color: var(--neon); }
   .glow-neon { box-shadow: var(--shadow-neon); }
@@ -142,25 +152,45 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: oklch(0.15 0.01 150); /* zinc-900 equivalent */
-    color: var(--foreground);
-    border: 2px solid oklch(0.2 0.01 150);
-    border-bottom-width: 6px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.1s ease;
+    background-color: var(--neon);
+    color: #000000;
+    font-family: var(--font-geo);
+    font-size: 1.4rem !important; /* Scaled down from 1.75rem */
+    line-height: 1;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    
+    /* 3D Bevel effect */
+    border-style: solid;
+    border-width: 6px; /* Scaled down from 8px */
+    border-top-color: oklch(0.95 0.18 142); /* Lighter neon edge */
+    border-left-color: oklch(0.95 0.18 142);
+    border-bottom-color: oklch(0.4 0.2 142); /* Darker green bottom */
+    border-right-color: oklch(0.4 0.2 142);
+    border-radius: 0;
+    
+    /* Outer black/dark border for contrast or keep neon glow */
+    box-shadow: 0 0 0 2px oklch(0.95 0.18 142), 0 4px 20px rgba(95, 255, 177, 0.2);
+    
+    transition: transform 0.1s ease, filter 0.1s ease;
     cursor: pointer;
+    /* Prevent box-shadow overlap issues in flex containers */
+    margin: 2px; 
   }
 
   .btn-keyboard:hover {
-    background-color: oklch(0.2 0.01 150);
+    filter: brightness(1.1);
   }
 
   .btn-keyboard:active {
-    transform: translateY(4px);
-    border-bottom-width: 2px;
+    /* Reverse bevel colors for "pressed" state */
+    border-top-color: oklch(0.4 0.2 142);
+    border-left-color: oklch(0.4 0.2 142);
+    border-bottom-color: oklch(0.95 0.18 142);
+    border-right-color: oklch(0.95 0.18 142);
+    transform: translateY(2px);
   }
 
   .glass-card {

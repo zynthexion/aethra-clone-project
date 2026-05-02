@@ -71,21 +71,21 @@ function Index() {
   return (
     <>
       {/* Hero */}
-      <section id="home" className="px-6 pt-12 pb-32 md:pt-20 md:pb-48 relative overflow-hidden scroll-mt-24">
+      <section id="home" className="px-6 pt-12 pb-12 md:pt-16 md:pb-20 relative overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
             <div className="inline-flex items-center gap-3 pill px-6 py-2.5 mb-12">
               <span className="w-2 h-2 rounded-full bg-neon animate-pulse shadow-neon" />
-              <span className="text-neon font-display font-bold tracking-[0.2em] text-[10px] uppercase">DIGnity Agency</span>
-              <span className="text-muted-foreground text-[10px] tracking-widest uppercase">| Kerala's Premier Creative Studio</span>
+              <span className="text-neon font-geo font-bold tracking-[0.2em] text-[14px] uppercase">DIGnity</span>
+              <span className="text-muted-foreground font-geo text-[14px] tracking-widest uppercase">| All digital solutions</span>
             </div>
           </Reveal>
 
           <Reveal delay={100}>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.85] tracking-tighter min-h-[4.2em] md:min-h-0">
-              <span className="block">Creative</span>
-              <span className="block mt-1"><span className="flowing-gradient">Solutions</span> for</span>
-              <span className="block mt-1 opacity-80">
+              <span className="block -ml-1 md:-ml-2">Creative</span>
+              <span className="block mt-1 -ml-1 md:-ml-2"><span className="flowing-gradient">Solutions</span> for</span>
+              <span className="block mt-1 opacity-80 tracking-normal text-[1.3em]" style={{ fontFamily: "'MiniPixel7', sans-serif", fontWeight: 'normal' }}>
                 <Typewriter
                   words={["Digital growth.", "Bold brands.", "Viral content.", "Real results."]}
                 />
@@ -94,17 +94,17 @@ function Index() {
           </Reveal>
 
           <Reveal delay={250}>
-            <p className="mt-12 text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance font-light leading-relaxed">
+            <p className="mt-12 text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance font-light leading-relaxed font-geo">
               We engineer high-performance brand identities and cinematic content that scales businesses from Kerala to the global stage.
             </p>
           </Reveal>
 
           <Reveal delay={350}>
             <div className="mt-12 flex flex-wrap gap-6">
-              <a href="#services" className="btn-keyboard px-10 py-4 text-neon text-xs">
+              <a href="#services" className="btn-keyboard px-10 py-4">
                 Explore Services
               </a>
-              <a href="#contact" className="btn-keyboard px-10 py-4 text-xs">
+              <a href="#contact" className="btn-keyboard px-10 py-4">
                 Start a Project
               </a>
             </div>
@@ -119,18 +119,18 @@ function Index() {
       {/* Services - Redesigned Spotlight Grid */}
       <section 
         id="services" 
-        className="px-6 py-32 scroll-mt-24 relative overflow-hidden"
+        className="px-6 py-12 scroll-mt-20 relative overflow-hidden"
         onMouseMove={handleMouseMove}
         ref={servicesRef}
       >
         <div className="max-w-7xl mx-auto">
           <Reveal>
-            <div className="text-center mb-24">
-              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-4 uppercase">Capabilities</p>
+            <div className="text-center mb-12">
+              <p className="text-neon font-geo text-[16px] font-bold tracking-[0.3em] mb-4 uppercase">Capabilities</p>
               <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
                 High-impact <span className="flowing-gradient">Solutions.</span>
               </h2>
-              <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed">
+              <p className="mt-6 text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed font-geo">
                 We combine cinematic production with data-driven strategy to build brands that don't just exist—they dominate.
               </p>
             </div>
@@ -142,28 +142,26 @@ function Index() {
                 <div className="spotlight-card rounded-[2rem] p-10 h-full flex flex-col group min-h-[450px]">
                   <span className="huge-number">{s.n}</span>
                   
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex flex-col flex-grow">
                     <div className="w-12 h-12 rounded-2xl bg-neon/10 border border-neon/20 flex items-center justify-center mb-8 group-hover:bg-neon group-hover:text-primary-foreground transition-all duration-500 shadow-neon/0 group-hover:shadow-neon">
                       <span className="font-display font-black text-xl">{s.n}</span>
                     </div>
                     
                     <h3 className="text-3xl font-bold tracking-tight mb-4 group-hover:text-neon transition-colors duration-500">{s.title}</h3>
-                    <p className="text-muted-foreground font-light leading-relaxed mb-8">{s.desc}</p>
+                    <p className="text-muted-foreground font-light leading-relaxed mb-8 max-h-40 overflow-hidden transition-all duration-500 group-hover:max-h-0 group-hover:opacity-0 group-hover:mb-0">{s.desc}</p>
                     
                     <div className="flex flex-wrap gap-2">
                       {s.items.map(item => (
-                        <span key={item} className="px-3 py-1.5 rounded-full glass text-[9px] font-bold uppercase tracking-widest border border-border/40 group-hover:border-neon/30 transition-colors">
+                        <span key={item} className="px-3 py-1.5 rounded-full glass text-[11px] font-bold uppercase tracking-widest border border-border/40 group-hover:border-neon/30 transition-colors">
                           {item}
                         </span>
                       ))}
                     </div>
-                  </div>
-                  
-                  <div className="mt-auto pt-10 relative z-10">
-                    <a href="#contact" className="inline-flex items-center gap-2 text-neon text-[10px] font-bold uppercase tracking-widest group/link">
-                      Learn More 
-                      <span className="group-hover/link:translate-x-1 transition-transform">→</span>
-                    </a>
+                    <div className="mt-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                      <a href="#contact" className="btn-keyboard text-[12px] px-8 py-2">
+                        Learn More
+                      </a>
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -173,11 +171,11 @@ function Index() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="px-6 py-32 relative overflow-hidden">
+      <section id="pricing" className="px-6 py-12 scroll-mt-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
-            <div className="text-center mb-20">
-              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-4 uppercase">Investment Plans</p>
+            <div className="text-center mb-12">
+              <p className="text-neon font-geo text-[16px] font-bold tracking-[0.3em] mb-4 uppercase">Investment Plans</p>
               <h2 className="text-5xl md:text-7xl font-bold tracking-tighter">Affordable packages. <br /><span className="text-neon">Global standards.</span></h2>
             </div>
           </Reveal>
@@ -186,7 +184,6 @@ function Index() {
             {plans.map((p, i) => (
               <Reveal key={p.name} delay={200 + i * 200} y={60}>
                 <div className={`glass-card p-10 h-full flex flex-col group ${p.featured ? "border-neon/40 bg-neon/[0.03] scale-105 shadow-neon/10" : ""}`}>
-                  {p.featured && <span className="text-[10px] font-bold text-neon tracking-[0.2em] mb-6 uppercase animate-pulse">Recommended Choice</span>}
                   <h3 className="text-3xl font-bold tracking-tight group-hover:text-neon transition-colors">{p.name}</h3>
                   <p className="text-muted-foreground text-sm mt-4 font-light leading-relaxed">{p.desc}</p>
                   <div className="mt-8 flex items-baseline gap-2">
@@ -202,9 +199,11 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                  <a href="#contact" className={`mt-10 btn-keyboard py-4 text-xs w-full ${p.featured ? "text-neon border-neon/50" : ""}`}>
-                    Get Started
-                  </a>
+                  <div className="pt-8">
+                    <a href="#contact" className={`mt-16 btn-keyboard py-4 text-xs w-full ${p.featured ? "text-neon border-neon/50" : ""}`}>
+                      Get Started
+                    </a>
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -215,15 +214,15 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="px-6 py-32 relative overflow-hidden">
+      <section id="about" className="px-6 py-12 scroll-mt-20 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">
             <Reveal>
-              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">The Studio</p>
+              <p className="text-neon font-geo text-[16px] font-bold tracking-[0.3em] mb-6 uppercase">The Studio</p>
               <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
                 Building brands with <span className="text-neon">Dignity</span>, clarity and impact.
               </h2>
-              <p className="mt-8 text-xl text-muted-foreground font-light leading-relaxed">
+              <p className="mt-8 text-xl text-muted-foreground font-light leading-relaxed font-geo">
                 DIGnity is a modern creative studio based in Kerala, engineered to scale brands through a fusion of high-end cinematic production and strategic digital marketing.
               </p>
               
@@ -253,7 +252,7 @@ function Index() {
                          </span>
                        ))}
                      </div>
-                   </div>
+                    </div>
                    {/* Inner glow pulse */}
                    <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,var(--neon)_0%,transparent_70%)] opacity-0 group-hover/orbit:opacity-10 transition-opacity duration-1000" />
                 </div>
@@ -272,15 +271,15 @@ function Index() {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="px-6 py-32 relative">
+      <section id="contact" className="px-6 py-12 scroll-mt-20 relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20">
             <Reveal>
-              <p className="text-neon text-[10px] font-bold tracking-[0.3em] mb-6 uppercase">Get in Touch</p>
+              <p className="text-neon font-geo text-[16px] font-bold tracking-[0.3em] mb-6 uppercase">Get in Touch</p>
               <h2 className="text-5xl md:text-7xl font-bold tracking-tighter leading-[0.9]">
                 Let's create something <span className="text-neon">legendary.</span>
               </h2>
-              <p className="mt-8 text-xl text-muted-foreground font-light mb-12">
+              <p className="mt-8 text-xl text-muted-foreground font-light mb-12 font-geo">
                 Drop us a line and let's start the conversation about your brand's future.
               </p>
 
