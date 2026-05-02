@@ -33,8 +33,8 @@ export function Reveal({ children, delay = 0, className = "", y = 24 }: RevealPr
       className={className}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : `translateY(${y}px)`,
-        transition: `opacity 0.8s ease-out ${delay}ms, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}ms`,
+        transform: visible ? "translateY(0) scale(1)" : `translateY(${y}px) scale(0.98)`,
+        transition: `opacity 1.2s ease-out ${delay}ms, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
         willChange: "opacity, transform",
       }}
     >
