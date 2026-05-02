@@ -73,24 +73,6 @@ function Header() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-border/40 px-6 py-16 mt-20 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <Logo size="md" />
-          <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">Where creativity meets growth</p>
-        </div>
-
-        <div className="flex flex-col items-center md:items-end gap-2 text-muted-foreground">
-          <p className="text-xs uppercase tracking-widest font-bold text-foreground">Thrissur, Kerala</p>
-          <a href="tel:9048191613" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">+91 90481 91613</a>
-          <p className="text-[10px] opacity-40 mt-4">© {new Date().getFullYear()} DIGnity Creative Solutions.</p>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 function RootComponent() {
   return (
@@ -108,7 +90,7 @@ function RootComponent() {
         <main>
           <Outlet />
         </main>
-        <Footer />
+
       </div>
     </>
   );
