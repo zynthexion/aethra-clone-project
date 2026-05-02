@@ -103,9 +103,9 @@
 }
 
 @keyframes logo-color-cycle {
-  0%, 100% { color: #a3ff00; text-shadow: 0 0 20px rgba(163, 255, 0, 0.5); }
-  33% { color: #00f2ff; text-shadow: 0 0 20px rgba(0, 242, 255, 0.5); }
-  66% { color: #ff00ea; text-shadow: 0 0 20px rgba(255, 0, 234, 0.5); }
+  0%, 100% { color: #a3ff00; text-shadow: 0 0 10px rgba(163, 255, 0, 0.3); }
+  33% { color: #00f2ff; text-shadow: 0 0 10px rgba(0, 242, 255, 0.3); }
+  66% { color: #ff00ea; text-shadow: 0 0 10px rgba(255, 0, 234, 0.3); }
 }
 
 /* Background Atmosphere */
@@ -121,8 +121,8 @@
 
 @keyframes atmosphere-fade {
   0%, 75% { opacity: 0; }
-  90% { opacity: 1; }
-  100% { opacity: 0.5; }
+  90% { opacity: 0.6; }
+  100% { opacity: 0.3; }
 }
 
 @media (max-width: 768px) {

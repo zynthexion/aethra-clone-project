@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Typewriter } from "@/components/Typewriter";
 import { Reveal } from "@/components/Reveal";
 import { useRef, useEffect } from "react";
@@ -117,18 +117,12 @@ function Index() {
 
           <Reveal delay={350}>
             <div className="mt-12 flex flex-wrap gap-6 justify-center md:justify-start">
-              <button 
-                onClick={() => {
-                  if (window.innerWidth < 768) {
-                    window.location.href = "/services";
-                  } else {
-                    window.location.hash = "services";
-                  }
-                }}
+              <a 
+                href="#services"
                 className="inline-flex btn-keyboard px-10 py-4 text-neon"
               >
                 Explore Services
-              </button>
+              </a>
               <button 
                 onClick={() => {
                   window.dispatchEvent(new CustomEvent('open-contact-prompt'));
@@ -137,18 +131,12 @@ function Index() {
               >
                 Talk to us
               </button>
-              <button 
-                onClick={() => {
-                  if (window.innerWidth < 768) {
-                    window.location.href = "/contact";
-                  } else {
-                    window.location.hash = "contact";
-                  }
-                }}
+              <a 
+                href="#contact"
                 className="hidden md:inline-flex btn-keyboard px-10 py-4 text-neon"
               >
                 Start a Project
-              </button>
+              </a>
             </div>
           </Reveal>
         </div>
@@ -158,8 +146,8 @@ function Index() {
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon/5 rounded-full blur-[100px] pointer-events-none" />
       </section>
 
-      {/* Subsequent sections - Hidden on mobile, visible on desktop */}
-      <div className="hidden md:block">
+      {/* Subsequent sections */}
+      <div>
         {/* Services - Redesigned Spotlight Grid */}
       <section 
         id="services" 
