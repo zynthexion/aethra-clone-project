@@ -56,6 +56,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col items-center md:items-end gap-2 text-muted-foreground">
           <p className="text-xs uppercase tracking-widest font-bold text-foreground">Thrissur, Kerala</p>
           <a href="tel:9048191613" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">+91 90481 91613</a>
+          <a href="mailto:hello@dignitymedia.in" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">hello@dignitymedia.in</a>
           <p className="text-[10px] opacity-40 mt-4">© {new Date().getFullYear()} DIGnity Creative Solutions.</p>
         </div>
       </div>

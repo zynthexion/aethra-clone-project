@@ -1,5 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import appCss from "../styles.css?url";
+import faviconUrl from "../assets/favicon.png?url";
 import LiquidEther from "@/components/LiquidEther";
 import { Logo } from "@/components/Logo";
 
@@ -29,6 +30,7 @@ export const Route = createRootRoute({
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "icon", type: "image/png", href: faviconUrl },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -76,7 +78,7 @@ function Header() {
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
       const isHomePage = window.location.pathname === '/';
       
-      if (deltaY > 100 && isAtBottom && window.innerWidth < 768 && !isHomePage) {
+      if (deltaY > 100 && isAtBottom && window.innerWidth < 768) {
         setIsMenuOpen(true);
       }
     };
@@ -114,8 +116,9 @@ function Header() {
           >
             Home
           </Link>
-          <a href="#services" className="hover:text-neon transition-colors">Services</a>
-          <a href="#pricing" className="hover:text-neon transition-colors">Pricing</a>
+          <Link to="/services" className="hover:text-neon transition-colors">Services</Link>
+          <Link to="/pricing" className="hover:text-neon transition-colors">Pricing</Link>
+          <Link to="/about" className="hover:text-neon transition-colors">About</Link>
         </div>
 
         <div className="flex items-center gap-4">
@@ -128,12 +131,12 @@ function Header() {
           </button>
 
           {/* Desktop Contact Button */}
-          <a 
-            href="#contact" 
+          <Link 
+            to="/contact" 
             className="hidden md:flex btn-keyboard px-8 py-2.5 text-[10px] tracking-[0.2em] uppercase font-bold text-neon"
           >
             Contact
-          </a>
+          </Link>
 
 
           {/* Mobile Menu Toggle */}
@@ -266,11 +269,13 @@ function Header() {
 }
 
 
+import { Toaster } from "sonner";
 import { Preloader } from "@/components/Preloader";
 
 function RootComponent() {
   return (
     <>
+      <Toaster position="top-center" expand={true} richColors />
       <Preloader />
       <Header />
       <div className="min-h-screen bg-background bg-hero relative">
