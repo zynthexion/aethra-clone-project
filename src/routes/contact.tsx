@@ -8,7 +8,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   return (
-    <div className="pt-15">
+    <div className="pt-32">
       <section className="px-6 py-12 relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20">

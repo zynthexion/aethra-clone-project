@@ -55,6 +55,7 @@ const plans = [
 ];
 
 function Index() {
+  const navigate = useNavigate();
   const servicesRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -74,7 +75,7 @@ function Index() {
       {/* Hero */}
       <section 
         id="home" 
-        className="px-6 pt-12 pb-12 md:pt-16 md:pb-32 relative overflow-hidden scroll-mt-20 flex flex-col justify-center md:block min-h-[calc(100vh-80px)] md:min-h-screen snap-start snap-always"
+        className="px-6 pt-32 pb-12 md:pt-48 md:pb-32 relative overflow-hidden scroll-mt-20 flex flex-col justify-start md:justify-center md:block min-h-[calc(100vh-80px)] md:min-h-screen snap-start snap-always"
         onTouchStart={(e) => {
           const touch = e.touches[0];
           (window as any).touchStartY = touch.clientY;
@@ -117,12 +118,18 @@ function Index() {
 
           <Reveal delay={350}>
             <div className="mt-12 flex flex-wrap gap-6 justify-center md:justify-start">
-              <a 
-                href="#services"
+              <button 
+                onClick={() => {
+                  if (window.innerWidth < 768) {
+                    navigate({ to: "/services" });
+                  } else {
+                    window.location.hash = "services";
+                  }
+                }}
                 className="inline-flex btn-keyboard px-10 py-4 text-neon"
               >
                 Explore Services
-              </a>
+              </button>
               <button 
                 onClick={() => {
                   window.dispatchEvent(new CustomEvent('open-contact-prompt'));
@@ -131,12 +138,18 @@ function Index() {
               >
                 Talk to us
               </button>
-              <a 
-                href="#contact"
+              <button 
+                onClick={() => {
+                  if (window.innerWidth < 768) {
+                    navigate({ to: "/contact" });
+                  } else {
+                    window.location.hash = "contact";
+                  }
+                }}
                 className="hidden md:inline-flex btn-keyboard px-10 py-4 text-neon"
               >
                 Start a Project
-              </a>
+              </button>
             </div>
           </Reveal>
         </div>
@@ -146,8 +159,8 @@ function Index() {
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-neon/5 rounded-full blur-[100px] pointer-events-none" />
       </section>
 
-      {/* Subsequent sections */}
-      <div>
+      {/* Subsequent sections - Hidden on mobile, visible on desktop */}
+      <div className="hidden md:block">
         {/* Services - Redesigned Spotlight Grid */}
       <section 
         id="services" 
