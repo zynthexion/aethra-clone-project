@@ -369,7 +369,7 @@ function Index() {
       </section>
       </div>
 
-      <div className="snap-start">
+      <div className="hidden md:block snap-start">
         <Footer />
       </div>
     </>

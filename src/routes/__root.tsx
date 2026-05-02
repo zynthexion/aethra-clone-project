@@ -74,8 +74,9 @@ function Header() {
       
       // Check if user is at bottom of page
       const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
+      const isHomePage = window.location.pathname === '/';
       
-      if (deltaY > 100 && isAtBottom && window.innerWidth < 768) {
+      if (deltaY > 100 && isAtBottom && window.innerWidth < 768 && !isHomePage) {
         setIsMenuOpen(true);
       }
     };
