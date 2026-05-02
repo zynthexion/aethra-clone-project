@@ -44,7 +44,7 @@ function ServicesPage() {
   };
 
   return (
-    <div className="pt-32">
+    <div className="pt-24">
       <section 
         className="px-6 py-12 relative overflow-hidden"
         onMouseMove={handleMouseMove}

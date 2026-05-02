@@ -271,7 +271,7 @@ function RootComponent() {
     <>
       <Preloader />
       <Header />
-      <div className="min-h-screen bg-background bg-hero pt-20 relative">
+      <div className="min-h-screen bg-background bg-hero relative">
         <div className="fixed inset-0 z-[5] pointer-events-none opacity-40">
           <LiquidEther 
             colors={[ '#a3ff00', '#d4ff70', '#1a4d00' ]}

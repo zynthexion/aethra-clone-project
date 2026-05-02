@@ -75,7 +75,7 @@ function Index() {
       {/* Hero */}
       <section 
         id="home" 
-        className="px-6 pt-32 pb-12 md:pt-48 md:pb-32 relative overflow-hidden scroll-mt-20 flex flex-col justify-start md:justify-center md:block min-h-[calc(100vh-80px)] md:min-h-screen snap-start snap-always"
+        className="px-6 pt-24 pb-12 md:pt-48 md:pb-32 relative overflow-hidden scroll-mt-20 flex flex-col justify-center md:block min-h-[calc(100vh-80px)] md:min-h-screen snap-start snap-always"
         onTouchStart={(e) => {
           const touch = e.touches[0];
           (window as any).touchStartY = touch.clientY;

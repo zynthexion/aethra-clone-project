@@ -19,7 +19,7 @@ const industries = ["Restaurants & Cafes", "Retail Shops", "Real Estate", "Healt
 
 function AboutPage() {
   return (
-    <div className="pt-32">
+    <div className="pt-24">
       <section className="px-6 py-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-20 items-center">

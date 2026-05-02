@@ -14,7 +14,7 @@ const plans = [
 
 function PricingPage() {
   return (
-    <div className="pt-32">
+    <div className="pt-24">
       <section className="px-6 py-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
