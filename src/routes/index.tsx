@@ -76,18 +76,6 @@ function Index() {
       <section 
         id="home" 
         className="px-6 pt-24 pb-12 md:pt-48 md:pb-32 relative overflow-hidden scroll-mt-20 flex flex-col justify-center md:block min-h-[calc(100vh-80px)] md:min-h-screen snap-start snap-always"
-        onTouchStart={(e) => {
-          const touch = e.touches[0];
-          (window as any).touchStartY = touch.clientY;
-        }}
-        onTouchEnd={(e) => {
-          const touch = e.changedTouches[0];
-          const touchEndY = touch.clientY;
-          const deltaY = (window as any).touchStartY - touchEndY;
-          if (deltaY > 50) { // Swipe up
-            window.dispatchEvent(new CustomEvent('open-mobile-menu'));
-          }
-        }}
       >
         <div className="max-w-7xl mx-auto relative z-10">
           <Reveal>
