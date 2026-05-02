@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { Footer } from "@/components/Footer";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/pricing")({
   component: PricingPage,
@@ -15,7 +16,15 @@ const plans = [
 function PricingPage() {
   const navigate = useNavigate();
 
-  return (
+  // Logging for debugging mobile crashes
+  useEffect(() => {
+    console.log("Pricing Page mounted at:", new Date().toISOString());
+    console.log("User Agent:", navigator.userAgent);
+    console.log("Window Dimensions:", { width: window.innerWidth, height: window.innerHeight });
+  }, []);
+
+  try {
+    return (
     <div className="pt-24">
       <section className="px-6 py-12 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
@@ -66,6 +75,20 @@ function PricingPage() {
         </div>
       </section>
       <Footer />
-    </div>
-  );
+    );
+  } catch (error) {
+    console.error("Pricing Page Rendering Error:", error);
+    return (
+      <div className="pt-32 px-6 text-center">
+        <h1 className="text-2xl font-bold text-neon">Oops! Something went wrong.</h1>
+        <p className="mt-4 text-muted-foreground">We've logged the error and are working on it. Please try refreshing.</p>
+        <button 
+          onClick={() => window.location.reload()}
+          className="mt-8 btn-keyboard px-8 py-2"
+        >
+          Refresh Page
+        </button>
+      </div>
+    );
+  }
 }

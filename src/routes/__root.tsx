@@ -147,50 +147,50 @@ function Header() {
 
             {/* Full Screen Overlay Menu */}
             {isMenuOpen && (
-              <div className="fixed inset-0 z-[500] bg-black/60 backdrop-blur-3xl flex flex-col items-center justify-center p-8 animate-in fade-in zoom-in duration-300">
+              <div className="fixed inset-0 z-[500] bg-black/80 backdrop-blur-3xl flex flex-col items-center justify-center p-8 animate-in fade-in slide-in-from-bottom-10 duration-500">
                 <button 
                   onClick={() => setIsMenuOpen(false)}
-                  className="absolute top-8 right-8 w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center text-white"
+                  className="absolute top-8 right-8 w-14 h-14 rounded-full glass border border-white/10 flex items-center justify-center text-white hover:scale-110 transition-transform"
                 >
-                  <X size={24} />
+                  <X size={28} />
                 </button>
 
-                <nav className="flex flex-col gap-10 text-center">
+                <nav className="flex flex-col gap-12 text-center" style={{ fontFamily: "'Dedicool', sans-serif" }}>
                   <Link 
                     to="/" 
                     onClick={() => {
                       setIsMenuOpen(false);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="text-5xl font-bold tracking-tighter hover:text-neon transition-colors"
+                    className="text-6xl font-bold tracking-tighter hover:text-neon transition-all"
                   >
                     HOME
                   </Link>
                   <Link 
                     to="/services" 
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-5xl font-bold tracking-tighter hover:text-neon transition-colors"
+                    className="text-6xl font-bold tracking-tighter hover:text-neon transition-all"
                   >
                     SERVICES
                   </Link>
                   <Link 
                     to="/pricing" 
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-5xl font-bold tracking-tighter hover:text-neon transition-colors"
+                    className="text-6xl font-bold tracking-tighter hover:text-neon transition-all"
                   >
                     PRICING
                   </Link>
                   <Link 
                     to="/about" 
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-5xl font-bold tracking-tighter hover:text-neon transition-colors"
+                    className="text-6xl font-bold tracking-tighter hover:text-neon transition-all"
                   >
                     ABOUT
                   </Link>
                   <Link 
                     to="/contact" 
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-5xl font-bold tracking-tighter hover:text-neon transition-colors"
+                    className="text-6xl font-bold tracking-tighter hover:text-neon transition-all"
                   >
                     CONTACT
                   </Link>
