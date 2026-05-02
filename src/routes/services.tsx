@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { useRef } from "react";
 import { Footer } from "@/components/Footer";
@@ -29,6 +29,7 @@ const services = [
 ];
 
 function ServicesPage() {
+  const navigate = useNavigate();
   const servicesRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -88,7 +89,7 @@ function ServicesPage() {
                       <button 
                         onClick={() => {
                           if (window.innerWidth < 768) {
-                            window.location.href = "/contact";
+                            navigate({ to: "/contact" });
                           } else {
                             window.location.hash = "contact";
                           }

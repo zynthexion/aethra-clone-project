@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Reveal } from "@/components/Reveal";
 import { Footer } from "@/components/Footer";
 
@@ -13,6 +13,8 @@ const plans = [
 ];
 
 function PricingPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="pt-24">
       <section className="px-6 py-12 relative overflow-hidden">
@@ -47,7 +49,7 @@ function PricingPage() {
                     <button 
                       onClick={() => {
                         if (window.innerWidth < 768) {
-                          window.location.href = "/contact";
+                          navigate({ to: "/contact" });
                         } else {
                           window.location.hash = "contact";
                         }
