@@ -75,6 +75,7 @@ function PricingPage() {
         </div>
       </section>
       <Footer />
+    </div>
     );
   } catch (error) {
     console.error("Pricing Page Rendering Error:", error);
