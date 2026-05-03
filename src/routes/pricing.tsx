@@ -56,13 +56,7 @@ function PricingPage() {
                   </ul>
                   <div className="pt-8">
                     <button 
-                      onClick={() => {
-                        if (window.innerWidth < 768) {
-                          navigate({ to: "/contact" });
-                        } else {
-                          window.location.hash = "contact";
-                        }
-                      }}
+                      onClick={() => navigate({ to: "/contact" })}
                       className={`mt-16 btn-keyboard py-4 text-xs w-full ${p.featured ? "text-neon border-neon/50" : ""}`}
                     >
                       Get Started

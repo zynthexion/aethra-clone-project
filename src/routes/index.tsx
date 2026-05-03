@@ -107,13 +107,7 @@ function Index() {
           <Reveal delay={350}>
             <div className="mt-12 flex flex-wrap gap-6 justify-center md:justify-start">
               <button 
-                onClick={() => {
-                  if (window.innerWidth < 768) {
-                    navigate({ to: "/services" });
-                  } else {
-                    window.location.hash = "services";
-                  }
-                }}
+                onClick={() => navigate({ to: "/services" })}
                 className="inline-flex btn-keyboard px-10 py-4 text-neon"
               >
                 Explore Services
@@ -127,13 +121,7 @@ function Index() {
                 Talk to us
               </button>
               <button 
-                onClick={() => {
-                  if (window.innerWidth < 768) {
-                    navigate({ to: "/contact" });
-                  } else {
-                    window.location.hash = "contact";
-                  }
-                }}
+                onClick={() => navigate({ to: "/contact" })}
                 className="hidden md:inline-flex btn-keyboard px-10 py-4 text-neon"
               >
                 Start a Project

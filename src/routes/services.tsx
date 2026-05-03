@@ -87,13 +87,7 @@ function ServicesPage() {
                     </div>
                     <div className="mt-auto opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                       <button 
-                        onClick={() => {
-                          if (window.innerWidth < 768) {
-                            navigate({ to: "/contact" });
-                          } else {
-                            window.location.hash = "contact";
-                          }
-                        }}
+                        onClick={() => navigate({ to: "/contact" })}
                         className="inline-flex btn-keyboard text-[12px] px-8 py-2 text-neon"
                       >
                         Get started
