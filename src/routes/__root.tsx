@@ -215,7 +215,7 @@ function Header() {
             
             <div className="grid gap-4">
               <a 
-                href="https://wa.me/919048191613?text=Hi%20DIGnity,%20I'm%20interested%20in%20your%20services!"
+                href="https://wa.me/919946451613?text=Hi%20DIGnity,%20I'm%20interested%20in%20your%20services!"
                 className="flex items-center gap-4 p-5 glass border border-white/10 rounded-2xl hover:border-neon hover:bg-neon/10 transition-all group"
               >
                 <div className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366]">
@@ -228,7 +228,7 @@ function Header() {
               </a>
 
               <a 
-                href="tel:9048191613"
+                href="tel:9946451613"
                 className="flex items-center gap-4 p-5 glass border border-white/10 rounded-2xl hover:border-neon hover:bg-neon/10 transition-all group"
               >
                 <div className="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon">
@@ -236,7 +236,7 @@ function Header() {
                 </div>
                 <div>
                   <p className="font-bold">Phone Call</p>
-                  <p className="text-xs text-muted-foreground">+91 90481 91613</p>
+                  <p className="text-xs text-muted-foreground">+91 99464 51613</p>
                 </div>
               </a>
 

@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
         <div className="flex items-center gap-6">
           {/* WhatsApp */}
           <a 
-            href="https://wa.me/919048191613?text=Hi%20DIGnity,%20I'm%20interested%20in%20your%20services!" 
+            href="https://wa.me/919946451613?text=Hi%20DIGnity,%20I'm%20interested%20in%20your%20services!" 
             target="_blank" 
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center hover:border-neon hover:text-neon transition-all duration-300 group shadow-neon/0 hover:shadow-neon/20"
@@ -35,27 +35,33 @@ export const Footer: React.FC = () => {
             </svg>
           </a>
 
-          {/* Instagram - Inactive */}
-          <div 
-            className="w-12 h-12 rounded-full glass border border-white/5 flex items-center justify-center text-muted-foreground/40 cursor-not-allowed"
-            title="Instagram (Coming Soon)"
+          {/* Instagram */}
+          <a 
+            href="https://www.instagram.com/dignity_digital?igsh=YXg0Z3FscmQ2ODA0&utm_source=qr" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center hover:border-neon hover:text-neon transition-all duration-300 group shadow-neon/0 hover:shadow-neon/20"
+            title="Instagram"
           >
             <Instagram className="w-5 h-5" />
-          </div>
+          </a>
 
-          {/* Facebook - Inactive */}
-          <div 
-            className="w-12 h-12 rounded-full glass border border-white/5 flex items-center justify-center text-muted-foreground/40 cursor-not-allowed"
-            title="Facebook (Coming Soon)"
+          {/* Facebook */}
+          <a 
+            href="https://www.facebook.com/share/1J4DNPw4wg/?mibextid=wwXIfr" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 rounded-full glass border border-white/10 flex items-center justify-center hover:border-neon hover:text-neon transition-all duration-300 group shadow-neon/0 hover:shadow-neon/20"
+            title="Facebook"
           >
             <Facebook className="w-5 h-5" />
-          </div>
+          </a>
         </div>
 
         {/* Right: Info & Copyright */}
         <div className="flex flex-col items-center md:items-end gap-2 text-muted-foreground">
           <p className="text-xs uppercase tracking-widest font-bold text-foreground">Thrissur, Kerala</p>
-          <a href="tel:9048191613" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">+91 90481 91613</a>
+          <a href="tel:9946451613" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">+91 99464 51613</a>
           <a href="mailto:hello@dignitymedia.in" className="text-sm font-medium hover:text-neon transition-colors tracking-widest">hello@dignitymedia.in</a>
           <p className="text-[10px] opacity-40 mt-4">© {new Date().getFullYear()} DIGnity Creative Solutions.</p>
         </div>

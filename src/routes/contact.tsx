@@ -59,7 +59,7 @@ function ContactPage() {
                 </div>
                 <div>
                   <p className="text-[10px] text-muted-foreground tracking-widest mb-2 uppercase font-bold">Contact</p>
-                  <a href="tel:9048191613" className="text-3xl font-bold hover:text-neon transition-colors tracking-tighter">+91 90481 91613</a>
+                  <a href="tel:9946451613" className="text-3xl font-bold hover:text-neon transition-colors tracking-tighter">+91 99464 51613</a>
                 </div>
               </div>
             </Reveal>
